@@ -1,0 +1,17 @@
+name: LifeSoul
+main: com.snoxier.lifesoul.LifeSoulPlugin
+version: 1.0.0
+api-version: "1.21"
+author: Snoxier
+commands:
+  lsmax:
+    description: Set maximum hearts (global or per player)
+    usage: /<command> <maxHearts> [player]
+  withdraw:
+    description: Withdraw hearts into Heart items
+    usage: /<command> <amount>
+permissions:
+  lifesoul.admin:
+    default: op
+  lifesoul.withdraw:
+    default: true
