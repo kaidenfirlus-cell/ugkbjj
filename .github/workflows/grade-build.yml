@@ -23,7 +23,7 @@ jobs:
         with:
           gradle-version: "8.9"
 
-      - name: Build with Gradle )LifeSoul subfolder
+      - name: Build with Gradle (LifeSoul subfolder)
         working-directory: LifeSoul
         run: gradle build
 
