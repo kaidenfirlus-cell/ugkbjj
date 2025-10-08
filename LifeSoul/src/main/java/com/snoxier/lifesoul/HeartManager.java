@@ -2,7 +2,7 @@
 
 package com.snoxier.lifesoul;
 
-import org.bukkit.attribute.Attribute;
+import org.bukkit.attribute.Attributes;
 import org.bukkit.attribute.AttributeInstance;
 import org.bukkit.entity.Player;
 
@@ -32,7 +32,7 @@ public class HeartManager {
     public void applyStoredHearts(Player p){ clampToCap(p); }
 
     public int getCurrentHearts(Player p){
-        AttributeInstance inst = p.getAttribute(Attribute.MAX_HEALTH);
+        AttributeInstance inst = p.getAttribute(Attributes.MAX_HEALTH);
         if (inst == null) return 10;
         return (int)Math.round(inst.getBaseValue() / 2.0);
     }
@@ -40,7 +40,7 @@ public class HeartManager {
     public void setCurrentHearts(Player p, int hearts){
         int cap = getPlayerMaxHearts(p);
         hearts = Math.max(1, Math.min(hearts, cap));
-        AttributeInstance inst = p.getAttribute(Attribute.MAX_HEALTH);
+        AttributeInstance inst = p.getAttribute(Attributes.MAX_HEALTH);
         if (inst != null){
             inst.setBaseValue(hearts * 2.0);
             if (p.getHealth() > inst.getBaseValue()) p.setHealth(inst.getBaseValue());
@@ -50,4 +50,5 @@ public class HeartManager {
     public void addHearts(Player p, int delta){ setCurrentHearts(p, getCurrentHearts(p) + delta); }
     public void clampToCap(Player p){ setCurrentHearts(p, Math.min(getCurrentHearts(p), getPlayerMaxHearts(p))); }
 }
+
 
